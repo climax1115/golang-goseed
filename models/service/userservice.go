@@ -53,12 +53,4 @@ func (userservice Userservice) Find(user *(entity.User)) (*entity.User, error) {
 	return doc, nil
 }
 
-//Find user from email
-func (userservice Userservice) FindByEmail(email string) (*entity.User, error) {
-	conn := db.GetConnection()
-	defer conn.Session.Close()
 
-	user := new(entity.User)
-	user.Email = email
-	return userservice.Find(user)
-}
