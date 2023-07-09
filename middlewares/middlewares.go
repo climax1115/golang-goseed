@@ -62,12 +62,4 @@ func Authentication() gin.HandlerFunc {
 	}
 }
 
-//ErrorHandler is for global error
-func ErrorHandler(c *gin.Context) {
-	c.Next()
-	if len(c.Errors) > 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
-			"errors": c.Errors,
-		})
-	}
-}
+
